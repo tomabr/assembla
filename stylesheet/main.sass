@@ -1,0 +1,285 @@
+@import normalize
+@import variable
+@import font-awesome
+
+
+$main-bg: $color-alabaster
+$secondary-bg: $color-fiord
+$error-bg: $color-cindrella
+$track-bg: $color-mercury
+
+
+$check-color: $color-lima
+$error-color: $color-roman
+$very-weak-color: $color-flamingo
+$weak-color: $color-supernova
+$good-color: $color-lima
+$great-color: $color-apple
+$review-name-color: $color-franch-gray
+
+$border-container-top: $color-iron
+$border-section-right: $color-mischka
+$border-section-top: $color-silver-chalice
+$border-section-bottom: $color-fiord
+$border-input: $color-natural-gray
+$border-button: $color-apple
+$border-error: $color-coral-tree
+
+
+.color-gray
+  color: $color-natural-gray
+
+.container
+  display: flex
+  border-top: 3px solid $border-container-top
+  height: calc(100vh - 3px)
+  background: $secondary-bg
+
+
+.container__section
+  flex: 1
+  &.--main-section
+    background: $main-bg
+    border-top: 1px solid $border-section-top
+    padding: 30px
+    margin-bottom: 5px
+
+.header
+  .header__title
+    font-size: 1em
+    float: left
+  .header__image
+    float: left
+    width: 40px
+    height: 40px
+    background: url(img/logo.png)
+    background-repeat: no-repeat
+    background-size: contain
+
+.main
+  display: block
+  clear: both
+  padding: 40px
+
+.article__header
+  display: flex
+  flex-direction: column
+  line-height: 2em
+
+.article__headline
+  font-size: 2em
+
+.article__tip
+  font-size: 1.2em
+  @extend .color-gray
+
+.article__description
+  font-size: .9em
+  @extend .color-gray
+
+.form
+  display: flex
+  margin-top: 3em
+  flex-direction: column
+  align-items: flex-start
+  line-height: 2em
+
+.form__field
+  position: relative
+  &.--single
+    width: 75%
+  &.--double
+    width: 45%
+  &.--review
+    display: flex
+
+.form__inputs
+  display: flex
+  justify-content: space-between
+  width: 75%
+  &.--review
+    width: 100%
+
+.form__label
+  font-weight: bold
+  &.--review
+    color: $review-name-color
+    font-size: .8em
+    line-height: 1em
+
+.form__input
+  box-sizing: border-box
+  display: inline-block
+  padding: 0 2em 0 1em
+  margin: .5em 0
+  line-height: 2.5em
+  border-radius: 5px
+  border: 1px solid $border-input
+  width: 100%
+  &.--error
+    background: $error-bg
+    border: 1px solid $border-error
+  &.--review
+    display: none
+    cursor: pointer
+    padding: 0 1em
+
+.form__input-error
+  color: $error-color
+  font-weight: bold
+
+.form__tip
+  @extend .color-gray
+
+.form__button
+  float: left
+  display: block
+  background: linear-gradient(to bottom, $color-lima 0%, $color-vida-loca 100%);
+  color: #fff
+  font-weight: bold
+  border-radius: 5px
+  border: 1px solid $color-apple
+  cursor: pointer
+  margin: 2em 0
+  width: 120px
+  font-size: .9em
+  &:after
+    content: "\0203A"
+    padding-left: 4px
+    font-size: 1.4em
+
+.form__refresh
+  float: left
+  height: 2em
+  margin: 2em 1em
+  @extend .fa
+  @extend .fa-refresh
+  @extend .color-gray
+  background: transparent
+  border: none
+  cursor: pointer
+  transform: rotateZ(90deg)
+  &.--left
+    position: absolute
+    margin: 0
+    left: -2em
+    top: .8em
+
+.form__check
+  @extend .fa
+  @extend .fa-check
+  color: $check-color
+  position: absolute
+  line-height: 2em
+  left: -1.5em
+  top: .8em
+
+.form__domain
+  font-weight: bold
+  line-height: 4em
+  padding-left: .5em
+
+.form__input-icon
+  @extend .fa
+  @extend .fa-server
+  position: absolute
+  background: none
+  border: none
+  padding: 0
+  right: .5em
+  top: 1.4em
+
+.form__right
+  display: flex
+
+.form__edit
+  background: none
+  border: none
+  color: $review-name-color
+  font-size: .8em
+  cursor: pointer
+  bottom: .8em
+
+.form__dot
+  font-size: 1.5em
+  font-weight: bold
+
+.chart
+  width: 100%
+  line-height: .8em
+
+.chart__segment
+  height: 1.2em
+
+.chart__label
+  width: 25%
+  margin: .5em
+  padding-left: .7em
+  line-height: .8em
+  font-size: .7em
+  font-style: italic
+  &.--very-weak
+    color: $very-weak-color
+  &.--weak
+    color: $weak-color
+  &.--good
+    color: $good-color
+  &.--great
+    color: $great-color
+.chart__line
+  width: 75%
+
+.chart__track
+  overflow: auto
+  height: .6em
+  border-radius: 3px
+  background: $track-bg
+
+.chart__trace
+  height: 100%
+  &.--very-weak
+    background: $very-weak-color
+    width: 25%
+  &.--weak
+    background: $weak-color
+    width: 50%
+  &.--good
+    background: $good-color
+    width: 75%
+  &.--great
+    background: $great-color
+    width: 100%
+
+#article-1
+  display: block
+
+#article-2
+  display: none
+
+#article-3
+  display: none
+
+#article-4
+  display: none
+
+#article-5
+  display: none
+
+#article-6
+  display: none
+
+
+@media screen and (max-width: 768px)
+  .--second-section
+  	display: none
+
+@media screen and (max-width: 992px)
+  .form__inputs
+    display: block
+    width: 100%
+
+  .form__field
+    &.--single, &.--double
+      width: 100%
+
+

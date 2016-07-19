@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="assets/main.css">
+  <title>Assemba | Registration</title>
+</head>
+<body>
+  <div class="container">
+    <section class="container__section --main-section">
+      <header class="header">
+        <a href=".">
+          <div class="header__image"></div>
+          <h1 class="header__title">Assembla</h1>
+        </a>
+      </header>
+      <main class="main">
+        <article id="article-1">
+          <header class="article__header">
+            <h2 class="article__headline">Welcome to Assembla</h2>
+            <div class="article__tip">Please set up your email address</div>
+            <div class="article__description">The email field should be moved to marketing landing page. Splinter needed next to all submit buttons</div>
+          </header>
+          <section>
+            <form class="form">
+              <label for="email" class="form__label">My email</label>
+              <div class="form__field --single">
+                <span class="form__check"></span>
+                <input id="email" name="email" value="" placeholder="name@domain.com" class="form__input --single"/>
+              </div>
+              <div>
+                <button type="submit" class="form__button">Next</button>
+                <button type="reset" class="form__refresh"></button>
+              </div>
+            </form>
+          </section>
+        </article>
+        <article id="article-2">
+          <header class="article__header">
+            <h2 class="article__headline">Personal information</h2>
+            <div class="article__tip">Your name will be displayed along with all your activity in Assembla</div>
+          </header>
+          <section>
+            <form class="form">
+              <label for="name" class="form__label">My name</label>
+              <div class="form__inputs">
+                <div class="form__field --double">
+                  <span class="form__check"></span>
+                  <input type="text" id="name" name="name" value="" placeholder="First name" class="form__input" />
+                </div>
+                <div class="form__field --double">
+                  <span class="form__check"></span>
+                  <input type="text" name="name" value="" placeholder="Last name" class="form__input" />
+                </div>
+              </div>
+              <div>
+                <label for="username" class="form__label">My username </label>
+                <span class="form__tip">( only lower letters, numbers and dashes )</span>
+              </div>
+              <div class="form__field --single">
+                <span class="form__check"></span>
+                <input type="text" name="username" id="username" value="" placeholder="Last name" class="form__input" />
+              </div>
+              <div>
+                <button type="submit" class="form__button">Next</button>
+                <button type="reset" class="form__refresh"></button>
+              </div>
+            </form>
+          </section>
+        </article>
+        <article id="article-3">
+          <header class="article__header">
+            <h2 class="article__headline">Choose your domain.</h2>
+            <div class="article__tip">Please select with URL adress your Assembla team home will be.</div>
+          </header>
+          <section>
+            <form class="form">
+              <div>
+                <label for="teamname" class="form__label">My team URL Adress</label>
+                <span class="form__tip">( only numbers, letters and dashes )</span>
+              </div>
+              <div class="form__field --single">
+                <input id="teamname" name="teamname" value="" placeholder="Your team name" class="form__input --single" />
+              </div>
+              <div>
+                <button type="submit" class="form__button">Next</button>
+              </div>
+            </form>
+          </section>
+        </article>
+        <article id="article-4">
+          <header class="article__header">
+            <h2 class="article__headline">Choose your domain</h2>
+            <div class="article__tip">Please select what URL adress your Assembla team home will be</div>
+          </header>
+          <section>
+            <form class="form">
+              <div>
+                <label for="teamname" class="form__label">My team name</label>
+                <span class="form__tip">( you can change this later )</span>
+              </div>
+              <div class="form__right">
+                <div class="form__field --single">
+                  <button type="reset" class="form__refresh --left"></button>
+                  <input id="teamname" name="teamname" value="" placeholder="Your team name" class="form__input --single --error" />
+                  <span class="form__input-error">Space char is not allowed</span>
+                </div>
+                <span class="form__domain">.assembla.com</span>
+              </div>
+              <div>
+                <button type="submit" class="form__button">Next</button>
+              </div>
+            </form>
+          </section>
+        </article>
+        <article id="article-5">
+          <header class="article__header">
+            <h2 class="article__headline">Set your password</h2>
+            <div class="article__tip">Choose safe password that you will use to login Assembla.</div>
+          </header>
+          <section>
+            <form class="form">
+              <div>
+                <label for="password" class="form__label">My password</label>
+                <span class="form__tip">( at least 6 characters long )</span>
+              </div>
+              <div class="form__field --single">
+                <input type="password" id="password" name="teamname" value="" placeholder="My password" class="form__input --single" />
+                <button class="form__input-icon"></button>
+              </div>
+              <table class="chart">
+                <tr class="chart__segment">
+                  <td class="chart__line">
+                    <div class="chart__track">
+                      <div class="chart__trace"></div>
+                    </div>
+                  </td>
+                  <td class="chart__label"></td>
+                </tr>
+                <tr class="chart__segment">
+                  <td class="chart__line">
+                    <div class="chart__track">
+                      <div class="chart__trace --very-weak"></div>
+                    </div>
+                  </td>
+                  <td class="chart__label --very-weak">Very week</td>
+                </tr>
+                <tr class="chart__segment">
+                  <td class="chart__line">
+                    <div class="chart__track">
+                      <div class="chart__trace --weak"></div>
+                    </div>
+                  </td>
+                  <td class="chart__label --weak">Week</td>
+                </tr>
+                <tr class="chart__segment">
+                  <td class="chart__line">
+                    <div class="chart__track">
+                      <div class="chart__trace --good"></div>
+                    </div>
+                  </td>
+                  <td class="chart__label --good">Good</td>
+                </tr>
+                <tr class="chart__segment">
+                  <td class="chart__line">
+                    <div class="chart__track">
+                      <div class="chart__trace --great"></div>
+                    </div>
+                  </td>
+                  <td class="chart__label --great">Great!</td>
+                </tr>
+              </table>
+              <div>
+                <button type="submit" class="form__button">Next</button>
+              </div>
+            </form>
+          </section>
+        </article>
+        <article id="article-6">
+          <header class="article__header">
+            <h2 class="article__headline">Review</h2>
+          </header>
+          <section>
+            <form class="form">
+              <div>
+                <label for="team-name" class="form__label --review">My team name </label>
+                <div class="form__inputs --review">
+                  <div class="form__field --review">
+                    <input type="text" id="team-name" name="name" value="Assembla team" placeholder="My team name" class="form__input --review">
+                    <button type="button" class="form__edit">Edit</button>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="webaddress" class="form__label --review">My web address </label>
+                <div class="form__inputs --review">
+                  <div class="form__field --review">
+                    <input type="text" id="webaddress" name="webaddress" value="assemba.team@assembla.com" placeholder="First name" class="form__input --review">
+                    <button type="button" class="form__edit">Edit</button>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="name" class="form__label --review">My name </label>
+                <div class="form__inputs --review">
+                  <div class="form__field --review">
+                    <input type="text" id="name" name="webaddress" value="Marcin Książkiewicz" placeholder="My username" class="form__input --review">
+                    <button type="button" class="form__edit">Edit</button>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="username" class="form__label --review">My username </label>
+                <div class="form__inputs --review">
+                  <div class="form__field --review">
+                    <input id="username" name="webaddress" placeholder="My password" class="form__input --review" value="marcin_ksiaz">
+                    <button type="button" class="form__edit">Edit</button>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="password" class="form__label --review">My password </label>
+                <div class="form__inputs --review">
+                  <div class="form__field --review">
+                    <input type="text" id="username" name="password" value="password" placeholder="My password" class="form__input --review">
+                    <button type="button" class="form__edit">Edit</button>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="username" class="form__label --review">My username </label>
+                <div class="form__inputs --review">
+                  <div class="form__field --review">
+                    <input type="email" id="username" name="webaddress" value="marcin@assembla.com" placeholder="My username" class="form__input --review">
+                    <button type="button" class="form__edit">Edit</button>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button type="submit" class="form__button">Next</button>
+              </div>
+            </form>
+          </section>
+        </article>
+      </main>
+    </section>
+    <aside class="container__section --second-section">
+    </aside>
+  </div>
+</body>
+<script src="assets/main.min.js"></script>
+
+</html>
