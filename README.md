@@ -1,3 +1,3 @@
 # Responsive 
 Flex and responsive test
-(Online test)[http://responsivestyle.herokuapp.com]
+[Online test](http://responsivestyle.herokuapp.com)
