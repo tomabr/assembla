@@ -19,6 +19,11 @@
     input.parentNode.insertBefore(span, input.nextSibling);
   });
 
+
+
+
+
+
   var editButtons = $('button.form__edit');
   for (var i = 0; i < editButtons.length; i++) {
     editButtons[i].addEventListener('click', function(e) {
@@ -135,6 +140,14 @@
             errorMessage: errorMessage,
             article: $(forms[i]).closest('article')
           };
+
+          var refresh = forms[i].querySelector('button.form__refresh');
+
+          if (refresh)
+            refresh.addEventListener('click', function() {
+              $(checkSign).hide();
+              $(errorMessage).hide();
+            });
 
           forms[i].addEventListener('submit', function(e) {
             e.preventDefault();
