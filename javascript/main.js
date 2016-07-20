@@ -6,7 +6,6 @@
 
 
     var input = e.querySelector('.form__input');
-    console.log(input);
     var span, spanText;
     if (input.name === 'password') {
       spanText = document.createTextNode("\u2E31\u2E31\u2E31\u2E31\u2E31\u2E31\u2E31\u2E31");
