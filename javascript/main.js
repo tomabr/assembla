@@ -17,7 +17,6 @@
     }
     span.appendChild(spanText);
     input.parentNode.insertBefore(span, input.nextSibling);
-    console.log(span);
   });
 
   var editButtons = $('button.form__edit');
