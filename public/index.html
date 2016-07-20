@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="assets/main.css">
-  <title>Assemba | Registration</title>
+  <title>AppTest | Registration</title>
 </head>
+
 <body>
   <div class="container">
     <section class="container__section --main-section">
       <header class="header">
         <a href=".">
           <div class="header__image"></div>
-          <h1 class="header__title">Assembla</h1>
+          <h1 class="header__title">AppTest</h1>
         </a>
       </header>
       <main class="main">
         <article id="article-1">
           <header class="article__header">
-            <h2 class="article__headline">Welcome to Assembla</h2>
+            <h2 class="article__headline">Welcome to AppTest</h2>
             <div class="article__tip">Please set up your email address</div>
             <div class="article__description">The email field should be moved to marketing landing page. Splinter needed next to all submit buttons</div>
           </header>
@@ -28,7 +30,7 @@
               <label for="email" class="form__label">My email</label>
               <div class="form__field --single">
                 <span class="form__check"></span>
-                <input id="email" name="email" value="" type="email" placeholder="name@domain.com" class="form__input --single" required/>
+                <input id="email" name="email" value="" type="email" placeholder="name@domain.com" class="form__input --single" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required/>
               </div>
               <div>
                 <button type="submit" class="form__button">Next</button>
@@ -48,11 +50,11 @@
               <div class="form__inputs">
                 <div class="form__field --double">
                   <span class="form__check"></span>
-                  <input type="text" id="name" name="name" value="" placeholder="First name" class="form__input" />
+                  <input type="text" id="name" name="name" value="" placeholder="First name" class="form__input" required />
                 </div>
                 <div class="form__field --double">
                   <span class="form__check"></span>
-                  <input type="text" name="name" value="" placeholder="Last name" class="form__input" />
+                  <input type="text" name="lastname" id="lastname" value="" placeholder="Last name" class="form__input" required/>
                 </div>
               </div>
               <div>
@@ -61,7 +63,7 @@
               </div>
               <div class="form__field --single">
                 <span class="form__check"></span>
-                <input type="text" name="username" id="username" value="" placeholder="Last name" class="form__input" />
+                <input type="text" name="username" id="username" value="" placeholder="Last name" class="form__input" pattern="^[a-z0-9_]*$" required/>
               </div>
               <div>
                 <button type="submit" class="form__button">Next</button>
@@ -78,11 +80,12 @@
           <section>
             <form class="form">
               <div>
-                <label for="teamname" class="form__label">My team URL Adress</label>
+                <label for="webaddress" class="form__label">My team URL Adress</label>
                 <span class="form__tip">( only numbers, letters and dashes )</span>
               </div>
               <div class="form__field --single">
-                <input id="teamname" name="teamname" value="" placeholder="Your team name" class="form__input --single" />
+                <span class="form__check"></span>
+                <input id="webaddress" type="text" name="teamname" value="" placeholder="Your web address" class="form__input --single" pattern="^[https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}]$" required/>
               </div>
               <div>
                 <button type="submit" class="form__button">Next</button>
@@ -98,13 +101,13 @@
           <section>
             <form class="form">
               <div>
-                <label for="teamname" class="form__label">My team name</label>
+                <label for="webaddress" class="form__label">My team name</label>
                 <span class="form__tip">( you can change this later )</span>
               </div>
               <div class="form__right">
                 <div class="form__field --single">
                   <button type="reset" class="form__refresh --left"></button>
-                  <input id="teamname" name="teamname" value="" placeholder="Your team name" class="form__input --single --error" />
+                  <input id="webaddress" name="teamname" value="" placeholder="Your team name" class="form__input --single" pattern="^[\S]*$" />
                   <span class="form__input-error">Space char is not allowed</span>
                 </div>
                 <span class="form__domain">.assembla.com</span>
@@ -127,7 +130,8 @@
                 <span class="form__tip">( at least 6 characters long )</span>
               </div>
               <div class="form__field --single">
-                <input type="password" id="password" name="teamname" value="" placeholder="My password" class="form__input --single" />
+                <span class="form__check"></span>
+                <input type="password" id="password" name="teamname" value="" placeholder="My password" class="form__input --single" required pattern="^.{6,}$" required/>
                 <button class="form__input-icon"></button>
               </div>
               <table class="chart">
@@ -185,19 +189,21 @@
           <section>
             <form class="form">
               <div>
-                <label for="team-name" class="form__label --review">My team name </label>
+                <label for="teamname-review" class="form__label --review">My team name </label>
                 <div class="form__inputs --review">
                   <div class="form__field --review">
-                    <input type="text" id="team-name" name="name" value="Assembla team" placeholder="My team name" class="form__input --review">
+                    <span class="form__check"></span>
+                    <input id="webaddress-review" name="teamname" value="test" placeholder="Your team name" class="form__input --review" pattern="^[\S]*$" value="Assembla Team"/>
                     <button type="button" class="form__edit">Edit</button>
                   </div>
                 </div>
               </div>
               <div>
-                <label for="webaddress" class="form__label --review">My web address </label>
+                <label for="webaddress-review" class="form__label --review">My web address </label>
                 <div class="form__inputs --review">
                   <div class="form__field --review">
-                    <input type="text" id="webaddress" name="webaddress" value="assemba.team@assembla.com" placeholder="First name" class="form__input --review">
+                    <span class="form__check"></span>
+                    <input id="webaddress-review" type="text" name="webaddress" value="www.assembla_team.assembla.com" placeholder="Your web address" class="form__input --review" pattern="^[https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}]$" required/>
                     <button type="button" class="form__edit">Edit</button>
                   </div>
                 </div>
@@ -205,35 +211,43 @@
               <div>
                 <label for="name" class="form__label --review">My name </label>
                 <div class="form__inputs --review">
-                  <div class="form__field --review">
-                    <input type="text" id="name" name="webaddress" value="Marcin Książkiewicz" placeholder="My username" class="form__input --review">
+                  <div class="form__field --double --review">
+                    <span class="form__check"></span>
+                    <input type="text" id="name-review" name="name" value="Jan" placeholder="First name" class="form__input --review" required/>
+                    <button type="button" class="form__edit">Edit</button>
+                  </div>
+                  <div class="form__field --double --review">
+                    <input type="text" name="lastname" value="Kowalski" placeholder="Last name" class="form__input --review" required/>
                     <button type="button" class="form__edit">Edit</button>
                   </div>
                 </div>
               </div>
               <div>
-                <label for="username" class="form__label --review">My username </label>
+                <label for="username-review" class="form__label --review">My username </label>
                 <div class="form__inputs --review">
                   <div class="form__field --review">
-                    <input id="username" name="webaddress" placeholder="My password" class="form__input --review" value="marcin_ksiaz">
+                    <span class="form__check"></span>
+                    <input type="text" name="username" id="username-review" value="jan_kowalski" placeholder="My user name" class="form__input --review" pattern="^[a-z0-9_]*$" required/>
                     <button type="button" class="form__edit">Edit</button>
                   </div>
                 </div>
               </div>
               <div>
-                <label for="password" class="form__label --review">My password </label>
+                <label for="password-review" class="form__label --review">My password </label>
                 <div class="form__inputs --review">
                   <div class="form__field --review">
-                    <input type="text" id="username" name="password" value="password" placeholder="My password" class="form__input --review">
+                    <span class="form__check"></span>
+                    <input type="text" id="password-review" name="password" value="haslo1234" placeholder="My password" class="form__input --review" required pattern="^.{6,}$" required/>
                     <button type="button" class="form__edit">Edit</button>
                   </div>
                 </div>
               </div>
               <div>
-                <label for="username" class="form__label --review">My username </label>
+                <label for="email-review" class="form__label --review">My email </label>
                 <div class="form__inputs --review">
                   <div class="form__field --review">
-                    <input type="email" id="username" name="webaddress" value="marcin@assembla.com" placeholder="My username" class="form__input --review">
+                    <span class="form__check"></span>
+                    <input id="email-review" name="email" value="jan@assembla.com" type="email" placeholder="name@domain.com" class="form__input --review" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required/>
                     <button type="button" class="form__edit">Edit</button>
                   </div>
                 </div>
