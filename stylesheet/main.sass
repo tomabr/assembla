@@ -78,7 +78,7 @@ $border-error: $color-coral-tree
   @extend .color-gray
 
 .form__fieldset
-  display: flex
+  display: none
   margin-top: 3em
   flex-direction: column
   align-items: flex-start
@@ -212,70 +212,11 @@ $border-error: $color-coral-tree
   font-size: 1.5em
   font-weight: bold
 
-.chart
+.form__meter
   width: 100%
-  line-height: .8em
 
-.chart__segment
-  height: 1.2em
-
-.chart__label
-  width: 25%
-  margin: .5em
-  padding-left: .7em
-  line-height: .8em
-  font-size: .7em
-  font-style: italic
-  &.--very-weak
-    color: $very-weak-color
-  &.--weak
-    color: $weak-color
-  &.--good
-    color: $good-color
-  &.--great
-    color: $great-color
-.chart__line
-  width: 75%
-
-.chart__track
-  overflow: auto
-  height: .6em
-  border-radius: 3px
-  background: $track-bg
-
-.chart__trace
-  height: 100%
-  &.--very-weak
-    background: $very-weak-color
-    width: 25%
-  &.--weak
-    background: $weak-color
-    width: 50%
-  &.--good
-    background: $good-color
-    width: 75%
-  &.--great
-    background: $great-color
-    width: 100%
-
-#article-1
+#fieldset-1
   display: flex
-
-#article-2
-  display: none
-
-#article-3
-  display: none
-
-#article-4
-  display: none
-
-#article-5
-  display: none
-
-#article-6
-  display: none
-
 
 @media screen and (max-width: 768px)
   .--second-section

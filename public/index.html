@@ -20,7 +20,7 @@
       </header>
       <main class="main">
         <form class="form" name="form">
-          <fieldset id="article-1" class="form__fieldset">
+          <fieldset id="fieldset-1" class="form__fieldset">
             <header class="article__header">
               <h2 class="article__headline">Welcome to AppTest</h2>
               <div class="article__tip">Please set up your email address</div>
@@ -38,7 +38,7 @@
               </div>
             </section>
           </fieldset>
-          <fieldset id="article-2" class="form__fieldset">
+          <fieldset class="form__fieldset">
             <header class="article__header">
               <h2 class="article__headline">Personal information</h2>
               <div class="article__tip">Your name will be displayed along with all your activity in Assembla</div>
@@ -69,7 +69,7 @@
               </div>
             </section>
           </fieldset>
-          <fieldset id="article-3" class="form__fieldset">
+          <fieldset class="form__fieldset">
             <header class="article__header">
               <h2 class="article__headline">Choose your domain.</h2>
               <div class="article__tip">Please select with URL adress your Assembla team home will be.</div>
@@ -88,7 +88,7 @@
               </div>
             </section>
           </fieldset>
-          <fieldset id="article-4" class="form__fieldset">
+          <fieldset class="form__fieldset">
             <header class="article__header">
               <h2 class="article__headline">Choose your domain</h2>
               <div class="article__tip">Please select what URL adress your Assembla team home will be</div>
@@ -111,7 +111,7 @@
               </div>
             </section>
           </fieldset>
-          <fieldset id="article-5" class="form__fieldset">
+          <fieldset class="form__fieldset">
             <header class="article__header">
               <h2 class="article__headline">Set your password</h2>
               <div class="article__tip">Choose safe password that you will use to login Assembla.</div>
@@ -125,55 +125,14 @@
                 <input type="password" id="password" name="password" value="" placeholder="My password" class="form__input --single" pattern="^.{6,}$" required/>
                 <span class="form__check"></span>
                 <button class="form__input-icon"></button>
+                <meter max="4" class="form__meter" id="meter"></meter>
               </div>
-              <table class="chart">
-                <tr class="chart__segment">
-                  <td class="chart__line">
-                    <div class="chart__track">
-                      <div class="chart__trace"></div>
-                    </div>
-                  </td>
-                  <td class="chart__label"></td>
-                </tr>
-                <tr class="chart__segment">
-                  <td class="chart__line">
-                    <div class="chart__track">
-                      <div class="chart__trace --very-weak"></div>
-                    </div>
-                  </td>
-                  <td class="chart__label --very-weak">Very week</td>
-                </tr>
-                <tr class="chart__segment">
-                  <td class="chart__line">
-                    <div class="chart__track">
-                      <div class="chart__trace --weak"></div>
-                    </div>
-                  </td>
-                  <td class="chart__label --weak">Week</td>
-                </tr>
-                <tr class="chart__segment">
-                  <td class="chart__line">
-                    <div class="chart__track">
-                      <div class="chart__trace --good"></div>
-                    </div>
-                  </td>
-                  <td class="chart__label --good">Good</td>
-                </tr>
-                <tr class="chart__segment">
-                  <td class="chart__line">
-                    <div class="chart__track">
-                      <div class="chart__trace --great"></div>
-                    </div>
-                  </td>
-                  <td class="chart__label --great">Great!</td>
-                </tr>
-              </table>
               <div>
                 <button type="button" class="form__button">Next</button>
               </div>
             </section>
           </fieldset>
-          <fieldset id="article-6" class="form__fieldset">
+          <fieldset class="form__fieldset">
             <header class="article__header">
               <h2 class="article__headline">Review</h2>
             </header>

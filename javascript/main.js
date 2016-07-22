@@ -117,6 +117,8 @@
           fieldsets.push(Object.create(fieldsetObject).initialize(this.fieldsets[i], this.buttonNext, this.checkSign, this.errorMessage).listen());
       }
 
+
+
       this.form.addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -132,5 +134,28 @@
     errorMessage: '.form_input-error',
     buttonNext: '.form__button',
   }).listen();
+
+
+var password = document.getElementById('password');
+var meter = document.getElementById('meter');
+
+
+password.addEventListener('input', function()
+{
+    var val = password.value.length;
+    if(val>12)
+    meter.value = 4;
+    else if(val>10)
+    meter.value = 3;
+   else if(val >8)
+    meter.value = 2;
+  else if(val>6)
+    meter.value =1;
+  else
+    meter.value =0;
+});
+
+
+
 
 })();
