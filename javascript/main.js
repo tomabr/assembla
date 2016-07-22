@@ -1,185 +1,136 @@
 (function() {
 
-  var inputs = $('#article-6 .form__field');
-  Array.from(inputs, function(e) {
-    var p = document.createElement("span");
-
-
-    var input = e.querySelector('.form__input');
-    var span, spanText;
-    if (input.name === 'password') {
-      spanText = document.createTextNode("\u2E31\u2E31\u2E31\u2E31\u2E31\u2E31\u2E31\u2E31");
-      span = document.createElement('span');
-      span.className = "form__dot";
-    } else {
-      spanText = document.createTextNode(input.value);
-      span = document.createElement('span');
-    }
-    span.appendChild(spanText);
-    input.parentNode.insertBefore(span, input.nextSibling);
-  });
-
-
-
-
-
-
-  var editButtons = $('button.form__edit');
-  for (var i = 0; i < editButtons.length; i++) {
-    editButtons[i].addEventListener('click', function(e) {
-      e.preventDefault();
-      var field = $(this).closest('.form__field');
-      field.find('input').show();
-      field.find('span').hide();
-      field.find('.form__edit').hide();
-    });
-  }
-
-
-  function removeClass(el, className) {
-    if (el.classList)
-      el.classList.remove(className);
-    else if (hasClass(el, className)) {
-      var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
-      el.className = el.className.replace(reg, ' ');
-    }
-  }
-
-  var inputObject = {
-    element: undefined,
+  var fieldsetObject = {
+    fieldset: undefined,
+    buttonNext: undefined,
     checkSign: undefined,
     errorMessage: undefined,
+    last: undefined,
+    inputs: [],
 
-    initialize: function(input, checkSign, errorMessage) {
-      this.element = input;
-      this.checkSign = input.parentElement.querySelector(checkSign);
-      this.errorMessage = input.parentElement.querySelector(errorMessage);
-
-      return this;
-    },
-    listen: function() {
-
-      this.element.addEventListener('change', function() {
-
-        if (this.validate()) {
-          if (!!this.checkSign) this.checkSign.style.display = 'block';
-          removeClass(this.element, '--error');
-          if (!!this.errorMessage) this.errorMessage.style.display = 'none';
-        } else {
-          if (!!this.checkSign) this.checkSign.style.display = 'none';
-          this.element.className = this.element.className + ' --error';
-          if (!!this.errorMessage) this.errorMessage.style.display = 'block';
-        }
-
-      }.bind(this));
-
-      return this;
-    },
-    validate: function() {
-      var value = this.element.value.trim();
-      var required = this.element.required;
-
-      if (!!this.element.getAttribute("pattern"))
-        var pattern = new RegExp(this.element.getAttribute("pattern"));
-
-
-      if (!!pattern && !pattern.test(value))
-        return false;
-
-      if (required && value.length < 1) {
-        return false;
-      }
-
-      return true;
-    }
-  };
-
-  var inputsObject = {
-    inputs: undefined,
-    checkSign: undefined,
-    errorMessage: undefined,
-    initialize: function(element, checkSign, errorMessage) {
-      this.inputs = element.querySelectorAll('input');
+    initialize: function(fieldset, buttonNext, checkSign, errorMessage, last) {
+      this.fieldset = fieldset;
+      this.buttonNext = this.fieldset.querySelector(buttonNext);
+      this.inputs = this.fieldset.querySelectorAll('input');
       this.checkSign = checkSign;
       this.errorMessage = errorMessage;
+      this.last = last;
+
       return this;
     },
+
     listen: function() {
-      var inputs = this.inputs;
-      for (var i = 0; i < inputs.length; i++) {
-        Object.create(inputObject).initialize(inputs[i], this.checkSign, this.errorMessage).listen();
-      }
-      return this.inputs;
+      (function(context) {
+        if (context.buttonNext)
+          context.buttonNext.addEventListener('click', function(e) {
+
+            var inputs = this.inputs;
+            for (var i = 0; i < inputs.length; i++) {
+
+              var checkSign = inputs[i].parentElement.querySelector(this.checkSign);
+              var errorMessage = inputs[i].parentElement.querySelector(this.errorMessage);
+
+              if ($(inputs[i]).is(":invalid")) {
+                if (checkSign)
+                  checkSign.style.display = "none";
+
+                if (errorMessage)
+                  errorMessage.style.display = "block";
+
+                return false;
+              } else {
+                if (checkSign)
+                  checkSign.style.display = "block";
+
+                if (errorMessage)
+                  errorMessage.style.display = "none";
+                localStorage.setItem(inputs[i].name, inputs[i].value.trim());
+              }
+            }
+
+
+
+            if (this.last) {
+              var length = localStorage.length;
+
+              for (var j = 0; j < length; j++) {
+                var name = localStorage.key(j);
+                var value = localStorage.getItem(localStorage.key(j));
+
+
+                var part = '[name=' + name + ']';
+                var input = this.last.querySelector(part);
+                input.value = value;
+                var edit = input.parentElement.querySelector('button');
+
+
+                edit.addEventListener('click', function(ev) {
+                  ev.preventDefault();
+                  var input=this.parentElement.querySelector('input');
+                  console.log(input);
+                  $(input).prop('disabled', false);
+                });
+              }
+
+            }
+
+            context.fieldset.style.display = 'none';
+            context.fieldset.nextElementSibling.style.display = 'flex';
+
+
+
+          }.bind(context));
+
+
+      })(this);
+
+
     }
   };
+
 
   var formObject = {
-    forms: undefined,
+    form: undefined,
     checkSign: undefined,
     errorMessage: undefined,
-    inputs: [],
-    initialize: function(selector, checkSign, errorMessage) {
-      this.forms = document.querySelectorAll(selector);
-      this.checkSign = checkSign;
-      this.errorMessage = errorMessage;
+    buttonNext: undefined,
+    fieldsets: [],
+
+    initialize: function(obj) {
+      this.form = document.querySelector(obj.form);
+      this.checkSign = obj.checkSign;
+      this.errorMessage = obj.errorMessage;
+      this.buttonNext = obj.buttonNext;
+      this.fieldsets = this.form.querySelectorAll('fieldset');
       return this;
     },
+
     listen: function() {
-      var forms = this.forms;
-      var length = forms.length;
+
+      var fieldsets = [];
+      var length = this.fieldsets.length;
+      var last = this.fieldsets[length - 1];
       for (var i = 0; i < length; i++) {
-        this.inputs.push(Object.create(inputsObject).initialize(forms[i], this.checkSign, this.errorMessage).listen());
+        if (i === length - 2)
+          fieldsets.push(Object.create(fieldsetObject).initialize(this.fieldsets[i], this.buttonNext, this.checkSign, this.errorMessage, last).listen());
+        else
+          fieldsets.push(Object.create(fieldsetObject).initialize(this.fieldsets[i], this.buttonNext, this.checkSign, this.errorMessage).listen());
       }
 
-      for (var i = 0; i < length; i++) {
-        (function(i, context, checkSign, errorMessage) {
+      this.form.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-          var param = {
-            inputs: context[i],
-            checkSign: checkSign,
-            errorMessage: errorMessage,
-            article: $(forms[i]).closest('article')
-          };
-
-          var refresh = forms[i].querySelector('button.form__refresh');
-
-          if (refresh)
-            refresh.addEventListener('click', function() {
-              $(checkSign).hide();
-              $(errorMessage).hide();
-            });
-
-          forms[i].addEventListener('submit', function(e) {
-            e.preventDefault();
-            var inputs = this.inputs;
-            var checkSign = this.checkSign;
-            var errorMessage = this.errorMessage;
-            var article = this.article;
-
-            for (var i = 0; i < this.inputs.length; i++) {
-              response = Object.create(inputObject).initialize(inputs[i], checkSign, errorMessage).validate();
-
-              if (response === false)
-                return false;
-            }
-
-            article.hide();
-            if (article.next()[0] !== undefined) {
-              article.next().show();
-            } else {
-              $('article').eq(0).show();
-            }
-
-
-
-
-          }.bind(param));
-        })(i, this.inputs, this.checkSign, this.errorMessage);
-      }
+        return false;
+      });
 
     }
   };
 
-  var form = Object.create(formObject).initialize('.form', '.form__check', '.form__input-error').listen();
+  var form = Object.create(formObject).initialize({
+    form: '.form',
+    checkSign: '.form_check',
+    errorMessage: '.form_input-error',
+    buttonNext: '.form__button',
+  }).listen();
 
 })();

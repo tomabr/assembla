@@ -77,12 +77,13 @@ $border-error: $color-coral-tree
   font-size: .9em
   @extend .color-gray
 
-.form
+.form__fieldset
   display: flex
   margin-top: 3em
   flex-direction: column
   align-items: flex-start
   line-height: 2em
+  border: none
 
 .form__field
   position: relative
@@ -117,11 +118,14 @@ $border-error: $color-coral-tree
   border-radius: 5px
   border: 1px solid $border-input
   width: 100%
-  &.--error
+  &:focus:invalid
     background: $error-bg
     border: 1px solid $border-error
+    ~ .form__input-error
+      display:block
+  &:valid ~ .form__check
+    display: block
   &.--review
-    display: none
     cursor: pointer
     padding: 0 1em
 
@@ -133,7 +137,8 @@ $border-error: $color-coral-tree
 .form__tip
   @extend .color-gray
 
-.form__button
+.form__button,
+.form__submit
   float: left
   display: block
   background: linear-gradient(to bottom, $color-lima 0%, $color-vida-loca 100%);
@@ -254,7 +259,7 @@ $border-error: $color-coral-tree
     width: 100%
 
 #article-1
-  display: block
+  display: flex
 
 #article-2
   display: none
