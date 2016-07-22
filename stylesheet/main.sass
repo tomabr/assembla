@@ -117,7 +117,7 @@ $border-error: $color-coral-tree
   border-radius: 5px
   border: 1px solid $border-input
   width: 100%
-  &:invalid
+  &:invalid:not(.--pristine)
     background: $error-bg
     border: 1px solid $border-error
     ~ .form__input-error

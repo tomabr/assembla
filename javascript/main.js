@@ -1,4 +1,5 @@
 (function() {
+  'use strict';
 
   var fieldsetObject = {
     fieldset: undefined,
@@ -155,6 +156,14 @@ password.addEventListener('input', function()
     meter.value =0;
 });
 
+var inputs = document.querySelectorAll('input');
+for(var i=0; i< inputs.length; i++) {
+  inputs[i].addEventListener('change', function(){
+    if($(this).hasClass('--pristine')){
+      $(this).removeClass('--pristine');
+    }
+  });
+}
 
 
 

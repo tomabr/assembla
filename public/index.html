@@ -29,7 +29,7 @@
             <section>
               <label for="email" class="form__label">My email</label>
               <div class="form__field --single">
-                <input id="email" name="email" value="" type="email" placeholder="name@domain.com" class="form__input --single" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required/>
+                <input id="email" name="email" value="" type="email" placeholder="name@domain.com" class="form__input --single --pristine" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required/>
                 <span class="form__check"></span>
               </div>
               <div>
@@ -47,11 +47,11 @@
               <label for="name" class="form__label">My name</label>
               <div class="form__inputs">
                 <div class="form__field --double">
-                  <input type="text" id="name" name="name" value="" placeholder="First name" class="form__input" required />
+                  <input type="text" id="name" name="name" value="" placeholder="First name" class="form__input --pristine" required />
                   <span class="form__check"></span>
                 </div>
                 <div class="form__field --double">
-                  <input type="text" name="lastname" id="lastname" value="" placeholder="Last name" class="form__input" required/>
+                  <input type="text" name="lastname" id="lastname" value="" placeholder="Last name" class="form__input --pristine" required/>
                   <span class="form__check"></span>
                 </div>
               </div>
@@ -60,7 +60,7 @@
                 <span class="form__tip">( only lower letters, numbers and dashes )</span>
               </div>
               <div class="form__field --single">
-                <input type="text" name="username" id="username" value="" placeholder="Last name" class="form__input" pattern="^[a-z0-9_]*$" required/>
+                <input type="text" name="username" id="username" value="" placeholder="Last name" class="form__input --pristine" pattern="^[a-z0-9_]*$" required/>
                 <span class="form__check"></span>
               </div>
               <div>
@@ -80,7 +80,7 @@
                 <span class="form__tip">( only numbers, letters and dashes )</span>
               </div>
               <div class="form__field --single">
-                <input id="webaddress" type="url" name="webaddress" value="" placeholder="Your web address" class="form__input --single" required/>
+                <input id="webaddress" type="url" name="webaddress" value="" placeholder="Your web address" class="form__input --single --pristine" required/>
                 <span class="form__check"></span>
               </div>
               <div>
@@ -101,7 +101,7 @@
               <div class="form__right">
                 <div class="form__field --single">
                   <button type="reset" class="form__refresh --left"></button>
-                  <input id="teamname" name="teamname" value="" placeholder="Your team name" class="form__input --single" pattern="^[\S]*$" />
+                  <input id="teamname" name="teamname" value="" placeholder="Your team name" class="form__input --single --pristine" pattern="^[\S]*$" />
                   <span class="form__input-error">Space char is not allowed</span>
                 </div>
                 <span class="form__domain">.assembla.com</span>
@@ -122,7 +122,7 @@
                 <span class="form__tip">( at least 6 characters long )</span>
               </div>
               <div class="form__field --single">
-                <input type="password" id="password" name="password" value="" placeholder="My password" class="form__input --single" pattern="^.{6,}$" required/>
+                <input type="password" id="password" name="password" value="" placeholder="My password" class="form__input --single --pristine" pattern="^.{6,}$" required/>
                 <span class="form__check"></span>
                 <button class="form__input-icon"></button>
                 <meter max="4" class="form__meter" id="meter"></meter>
@@ -141,7 +141,7 @@
                 <label for="teamname-review" class="form__label --review">My team name </label>
                 <div class="form__inputs --review">
                   <div class="form__field --review">
-                    <input id="webaddress-review" name="teamname" value="" placeholder="Your team name" class="form__input --review" pattern="^[\S]*$" value="" disabled required/>
+                    <input id="webaddress-review" name="teamname" value="" placeholder="Your team name" class="form__input --review --pristine" pattern="^[\S]*$" value="" disabled required/>
                     <span class="form__check"></span>
                     <button type="button" class="form__edit">Edit</button>
                   </div>
@@ -152,7 +152,7 @@
                 <div class="form__inputs --review">
                   <div class="form__field --review">
                     <span class="form__check"></span>
-                    <input id="webaddress-review" type="url" name="webaddress" value="" placeholder="Your web address" class="form__input --review" disabled required/>
+                    <input id="webaddress-review" type="url" name="webaddress" value="" placeholder="Your web address" class="form__input --review --pristine" disabled required/>
                      <span class="form__check"></span>
                     <button type="button" class="form__edit">Edit</button>
                   </div>
@@ -162,12 +162,12 @@
                 <label for="name" class="form__label --review">My name </label>
                 <div class="form__inputs --review">
                   <div class="form__field --double --review">
-                    <input type="text" id="name-review" name="name" value="" placeholder="First name" class="form__input --review" disabled required/>
+                    <input type="text" id="name-review" name="name" value="" placeholder="First name" class="form__input --review --pristine" disabled required/>
                     <span class="form__check"></span>
                     <button type="button" class="form__edit">Edit</button>
                   </div>
                   <div class="form__field --double --review">
-                    <input type="text" name="lastname" value="" placeholder="Last name" class="form__input --review" disabled required/>
+                    <input type="text" name="lastname" value="" placeholder="Last name" class="form__input --review --pristine" disabled required/>
                     <span class="form__check"></span>
                     <button type="button" class="form__edit">Edit</button>
                   </div>
@@ -177,7 +177,7 @@
                 <label for="username-review" class="form__label --review">My username </label>
                 <div class="form__inputs --review">
                   <div class="form__field --review">
-                    <input type="text" name="username" id="username-review" value="" placeholder="My user name" class="form__input --review" pattern="^[a-z0-9_]*$" disabled required/>
+                    <input type="text" name="username" id="username-review" value="" placeholder="My user name" class="form__input --review --pristine" pattern="^[a-z0-9_]*$" disabled required/>
                     <span class="form__check"></span>
                     <button type="button" class="form__edit">Edit</button>
                   </div>
@@ -187,7 +187,7 @@
                 <label for="password-review" class="form__label --review">My password </label>
                 <div class="form__inputs --review">
                   <div class="form__field --review">
-                    <input type="text" id="password-review" name="password" value="" placeholder="My password" class="form__input --review" required pattern="^.{6,}$" disabled required/>
+                    <input type="text" id="password-review" name="password" value="" placeholder="My password" class="form__input --review --pristine" required pattern="^.{6,}$" disabled required/>
                     <span class="form__check"></span>
                     <button type="button" class="form__edit">Edit</button>
                   </div>
@@ -198,7 +198,7 @@
                 <div class="form__inputs --review">
                   <div class="form__field --review">
                     <span class="form__check"></span>
-                    <input id="email-review" name="email" value="" type="email" placeholder="name@domain.com" class="form__input --review" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" disabled required/>
+                    <input id="email-review" name="email" value="" type="email" placeholder="name@domain.com" class="form__input --review --pristine" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" disabled required/>
                     <span class="form__check"></span>
                     <button type="button" class="form__edit">Edit</button>
                   </div>
