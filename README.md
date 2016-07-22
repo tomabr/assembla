@@ -1,3 +1,2 @@
-# Flex and Responsive 
-Flex and responsive test
+# Flex responsive, css3 validation & localStorage
 [Online test](http://responsivestyle.herokuapp.com)
