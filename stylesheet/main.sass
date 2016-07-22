@@ -93,7 +93,6 @@ $border-error: $color-coral-tree
     width: 45%
   &.--review
     display: flex
-    justify-content: space-between
 
 .form__inputs
   display: flex
@@ -118,7 +117,7 @@ $border-error: $color-coral-tree
   border-radius: 5px
   border: 1px solid $border-input
   width: 100%
-  &:focus:invalid
+  &:invalid
     background: $error-bg
     border: 1px solid $border-error
     ~ .form__input-error
@@ -128,6 +127,9 @@ $border-error: $color-coral-tree
   &.--review
     cursor: pointer
     padding: 0 1em
+  &:disabled
+    background: none
+    border: none
 
 .form__input-error
   color: $error-color
