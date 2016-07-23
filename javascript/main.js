@@ -68,8 +68,14 @@
                 edit.addEventListener('click', function(ev) {
                   ev.preventDefault();
                   var input=this.parentElement.querySelector('input');
-                  console.log(input);
                   $(input).prop('disabled', false);
+                  return false;
+                });
+
+                input.addEventListener('blur', function(ev){
+                  ev.preventDefault();
+                  $(this).prop('disabled', true);
+                  return false;
                 });
               }
 
