@@ -2,12 +2,10 @@
 @import variable
 @import font-awesome
 
-
 $main-bg: $color-alabaster
 $secondary-bg: $color-fiord
 $error-bg: $color-cindrella
 $track-bg: $color-mercury
-
 
 $check-color: $color-lima
 $error-color: $color-roman
@@ -25,30 +23,39 @@ $border-input: $color-natural-gray
 $border-button: $color-apple
 $border-error: $color-coral-tree
 
-
-.color-gray
+@mixin color-gray
   color: $color-natural-gray
+
+@mixin modifier($modifier)
+  &--#{$modifier}
+    @content;
+
+@mixin element($element...)
+  &__#{$element}
+    @content
 
 .container
   display: flex
   border-top: 3px solid $border-container-top
   height: calc(100vh - 3px)
   background: $secondary-bg
-
-
-.container__section
-  flex: 1
-  &.--main-section
-    background: $main-bg
-    border-top: 1px solid $border-section-top
-    padding: 30px
-    margin-bottom: 5px
+  @include element('section')
+    @include modifier('main-section')
+      flex: 1
+      background: $main-bg
+      border-top: 1px solid $border-section-top
+      padding: 30px
+      margin-bottom: 5px
+    @include modifier('second-section')
+      flex: 1
+      @media screen and (max-width: 768px)
+        display: none
 
 .header
-  .header__title
+  @include element('title')
     font-size: 1em
     float: left
-  .header__image
+  @include element('image')
     float: left
     width: 40px
     height: 40px
@@ -61,176 +68,152 @@ $border-error: $color-coral-tree
   clear: both
   padding: 40px
 
-.article__header
-  display: flex
-  flex-direction: column
-  line-height: 2em
-
-.article__headline
-  font-size: 2em
-
-.article__tip
-  font-size: 1.2em
-  @extend .color-gray
-
-.article__description
-  font-size: .9em
-  @extend .color-gray
-
-.form__fieldset
-  display: none
-  margin-top: 3em
-  flex-direction: column
-  align-items: flex-start
-  line-height: 2em
-  border: none
-
-.form__field
-  position: relative
-  &.--single
-    width: 75%
-  &.--double
-    width: 45%
-  &.--review
+.article
+  @include element('header')
     display: flex
+    flex-direction: column
+    line-height: 2em
+  @include element('headline')
+    font-size: 2em
+  @include element('tip')
+    font-size: 1.2em
+    @include color-gray
+  @include element('description')
+    font-size: .9em
+    @include color-gray
 
-.form__inputs
-  display: flex
-  justify-content: space-between
-  width: 75%
-  &.--review
+.form
+  @include element('fieldset')
+    display: none
+    margin-top: 3em
+    flex-direction: column
+    align-items: flex-start
+    line-height: 2em
+    border: none
+  @include element('field')
+    position: relative
+    @include modifier('single')
+      width: 75%
+      @media screen and (max-width: 992px)
+        width: 100%
+    @include modifier('double')
+      width: 45%
+      @media screen and (max-width: 992px)
+        width: 100%
+    @include modifier('review')
+      display: flex
+  @include element('inputs')
+    display: flex
+    justify-content: space-between
+    width: 75%
+    @include modifier('review')
+      width: 100%
+    @media screen and (max-width: 992px)
+      display: block
+      width: 100%
+  @include element('label')
+    font-weight: bold
+    @include modifier('review')
+      color: $review-name-color
+      font-size: .8em
+      line-height: 1em
+  @include element('input')
+    box-sizing: border-box
+    display: inline-block
+    padding: 0 2em 0 1em
+    margin: .5em 0
+    line-height: 2.5em
+    border-radius: 5px
+    border: 1px solid $border-input
     width: 100%
-
-.form__label
-  font-weight: bold
-  &.--review
-    color: $review-name-color
-    font-size: .8em
-    line-height: 1em
-
-.form__input
-  box-sizing: border-box
-  display: inline-block
-  padding: 0 2em 0 1em
-  margin: .5em 0
-  line-height: 2.5em
-  border-radius: 5px
-  border: 1px solid $border-input
-  width: 100%
-  &:invalid:not(.--pristine)
-    background: $error-bg
-    border: 1px solid $border-error
-    ~ .form__input-error
-      display:block
-  &:valid ~ .form__check
+    &:invalid:not(.form__input--pristine)
+      background: $error-bg
+      border: 1px solid $border-error
+      ~ .form__input-error
+        display:block
+    &:valid ~ .form__check
+      display: block
+    &:disabled
+      background: none
+      border: none
+    @include modifier('review')
+      cursor: pointer
+      padding: 0 1em
+  @include element('input-error')
+    color: $error-color
+    font-weight: bold
+    display: none
+  @include element('tip')
+    @include color-gray
+  @include element('button', 'submit')
+    float: left
     display: block
-  &.--review
+    background: linear-gradient(to bottom, $color-lima 0%, $color-vida-loca 100%);
+    color: #fff
+    font-weight: bold
+    border-radius: 5px
+    border: 1px solid $color-apple
     cursor: pointer
-    padding: 0 1em
-  &:disabled
+    margin: 2em 0
+    width: 120px
+    font-size: .9em
+    &:after
+      content: "\0203A"
+      padding-left: 4px
+      font-size: 1.4em
+  @include element('refresh')
+    float: left
+    height: 2em
+    margin: 2em 1em
+    @extend .fa
+    @extend .fa-refresh
+    @include color-gray
+    background: transparent
+    border: none
+    cursor: pointer
+    transform: rotateZ(90deg)
+    @include modifier('left')
+      position: absolute
+      margin: 0
+      left: -2em
+      top: .8em
+  @include element('check')
+    @extend .fa
+    @extend .fa-check
+    color: $check-color
+    position: absolute
+    line-height: 2em
+    left: -1.5em
+    top: .8em
+    display: none;
+  @include element('domain')
+    font-weight: bold
+    line-height: 4em
+    padding-left: .5em
+  @include element('input-icon')
+    @extend .fa
+    @extend .fa-server
+    position: absolute
     background: none
     border: none
-
-.form__input-error
-  color: $error-color
-  font-weight: bold
-  display: none
-
-.form__tip
-  @extend .color-gray
-
-.form__button,
-.form__submit
-  float: left
-  display: block
-  background: linear-gradient(to bottom, $color-lima 0%, $color-vida-loca 100%);
-  color: #fff
-  font-weight: bold
-  border-radius: 5px
-  border: 1px solid $color-apple
-  cursor: pointer
-  margin: 2em 0
-  width: 120px
-  font-size: .9em
-  &:after
-    content: "\0203A"
-    padding-left: 4px
-    font-size: 1.4em
-
-.form__refresh
-  float: left
-  height: 2em
-  margin: 2em 1em
-  @extend .fa
-  @extend .fa-refresh
-  @extend .color-gray
-  background: transparent
-  border: none
-  cursor: pointer
-  transform: rotateZ(90deg)
-  &.--left
-    position: absolute
-    margin: 0
-    left: -2em
-    top: .8em
-
-.form__check
-  @extend .fa
-  @extend .fa-check
-  color: $check-color
-  position: absolute
-  line-height: 2em
-  left: -1.5em
-  top: .8em
-  display: none;
-
-.form__domain
-  font-weight: bold
-  line-height: 4em
-  padding-left: .5em
-
-.form__input-icon
-  @extend .fa
-  @extend .fa-server
-  position: absolute
-  background: none
-  border: none
-  padding: 0
-  right: .5em
-  top: 1.4em
-
-.form__right
-  display: flex
-
-.form__edit
-  background: none
-  border: none
-  color: $review-name-color
-  font-size: .8em
-  cursor: pointer
-  bottom: .8em
-
-.form__dot
-  font-size: 1.5em
-  font-weight: bold
-
-.form__meter
-  width: 100%
+    padding: 0
+    right: .5em
+    top: 1.4em
+  @include element('right')
+    display: flex
+  @include element('edit')
+    background: none
+    border: none
+    color: $review-name-color
+    font-size: .8em
+    cursor: pointer
+    bottom: .8em
+  @include element('dot')
+    font-size: 1.5em
+    font-weight: bold
+  @include element('meter')
+    width: 100%
 
 #fieldset-1
   display: flex
-
-@media screen and (max-width: 768px)
-  .--second-section
-  	display: none
-
-@media screen and (max-width: 992px)
-  .form__inputs
-    display: block
-    width: 100%
-
-  .form__field
-    &.--single, &.--double
-      width: 100%
-
 

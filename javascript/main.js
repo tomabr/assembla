@@ -165,8 +165,8 @@ password.addEventListener('input', function()
 var inputs = document.querySelectorAll('input');
 for(var i=0; i< inputs.length; i++) {
   inputs[i].addEventListener('change', function(){
-    if($(this).hasClass('--pristine')){
-      $(this).removeClass('--pristine');
+    if($(this).hasClass('form__input--pristine')){
+      $(this).removeClass('form__input--pristine');
     }
   });
 }
